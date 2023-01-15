@@ -1,27 +1,28 @@
-const removeZeros = (array) => {
-  //remove 0 conins of the coinsCounter array
-  array.filter((item, index) => {
-    if(item == 0){
-      array.splice(index, 1);
+const convertToCoins = (coinsList, coinsCountList) => {
+  let outPutArray = [];
+  coinsCountList.forEach((element, i) => {
+    if (element > 0) {
+      outPutArray.push.apply(outPutArray, Array(coinsCountList[i]).fill(coinsList[i]));
     }
   });
-  return array;
+  //console.log(outPutArray);
+  return outPutArray;
 }
 
 const countCoins = (amount) => {
   if (amount >= 1) {
-    let notes = [100, 25, 10, 5, 1];
+    let coinsList = [100, 25, 10, 5, 1];
     let coinsCounter = Array(5).fill(0);
 
     // count coins using Greedy approach
     for (let i = 0; i < 5; i++) {
-      if (amount >= notes[i]) {
-        coinsCounter[i] = Math.floor(amount / notes[i]);
-        amount = amount % notes[i];
+      if (amount >= coinsList[i]) {
+        coinsCounter[i] = Math.floor(amount / coinsList[i]);
+        amount = amount % coinsList[i];
       }
     }
-    coinsCounter = removeZeros(coinsCounter);
-    console.log(coinsCounter.reverse()); //array reverse as requested on readme
+
+    console.log(convertToCoins(coinsList, coinsCounter).reverse()); //array reverse as requested on readme
   } else {
     console.log("Wrong input");
   }
