@@ -1,3 +1,13 @@
+const removeZeros = (array) => {
+  //remove 0 conins of the coinsCounter array
+  array.filter((item, index) => {
+    if(item == 0){
+      array.splice(index, 1);
+    }
+  });
+  return array;
+}
+
 const countCoins = (amount) => {
   if (amount >= 1) {
     let notes = [100, 25, 10, 5, 1];
@@ -10,12 +20,7 @@ const countCoins = (amount) => {
         amount = amount % notes[i];
       }
     }
-    //remove 0 conins of the coinsCounter array
-    coinsCounter.filter((item, index) => {
-      if(item == 0){
-        coinsCounter.splice(index, 1);
-      }
-    });
+    coinsCounter = removeZeros(coinsCounter);
     console.log(coinsCounter.reverse()); //array reverse as requested on readme
   } else {
     console.log("Wrong input");
