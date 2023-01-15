@@ -12,9 +12,9 @@ that the sum of the coins' value would equal the correct amount of change.
 
 ## Edge cases
 
-- Does your algorithm work for any given set of coins?
-- Can you ask for negative change?
-- Can you ask for a change value smaller than the smallest coin value?
+- Does your algorithm work for any given set of coins? no
+- Can you ask for negative change? yes and exception added
+- Can you ask for a change value smaller than the smallest coin value? yes and exception added
 
 
 ## Setup
