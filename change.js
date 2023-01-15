@@ -10,6 +10,12 @@ const countCoins = (amount) => {
         amount = amount % notes[i];
       }
     }
+    //remove 0 conins of the coinsCounter array
+    coinsCounter.filter((item, index) => {
+      if(item == 0){
+        coinsCounter.splice(index, 1);
+      }
+    });
     console.log(coinsCounter.reverse()); //array reverse as requested on readme
   } else {
     console.log("Wrong input");
